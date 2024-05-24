@@ -1,0 +1,41 @@
+# depslib dependency file v1.0
+1707249058 source:c:\users\nathi suprise\desktop\sizwe\hello world\to do list\to do list\main.cpp
+	<iostream>
+	<fstream>
+	<iomanip>
+	"TaskManager.h"
+
+1707247881 source:c:\users\nathi suprise\desktop\sizwe\hello world\to do list\to do list\taskmanager.cpp
+	<string>
+	<vector>
+	<fstream>
+	<iostream>
+	<algorithm>
+	<iomanip>
+	"TaskManager.h"
+
+1706735725 c:\users\nathi suprise\desktop\sizwe\hello world\to do list\to do list\taskmanager.h
+	<iostream>
+	<string>
+	<vector>
+
+1716542534 source:c:\users\mr perfect 15\desktop\sizwe\hello world\to do list\to do list\main.cpp
+	<iostream>
+	<fstream>
+	<iomanip>
+	"TaskManager.h"
+
+1706735725 c:\users\mr perfect 15\desktop\sizwe\hello world\to do list\to do list\taskmanager.h
+	<iostream>
+	<string>
+	<vector>
+
+1716542347 source:c:\users\mr perfect 15\desktop\sizwe\hello world\to do list\to do list\taskmanager.cpp
+	<string>
+	<vector>
+	<fstream>
+	<iostream>
+	<algorithm>
+	<iomanip>
+	"TaskManager.h"
+
