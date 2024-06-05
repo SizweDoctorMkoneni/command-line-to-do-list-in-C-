@@ -21,15 +21,15 @@ void TaskManager::view_task_list()
     if(!task_list.empty())
     {
         cout << setw(8) << "Your task List" << endl;
-        cout << left <<setw(16) << "Tasks" <<  right << "Status" << endl;
+
         for(int i=0; i<task_list.size(); i++)
         {
-            cout << left << setw(16) << task_list[i] << right << task_status[i] << endl;
+            cout << task_list[i] << endl;
         }
     }
     else
     {
-        cout << "Your task list is empty.\n";
+        cout << "Your task list is empty.\n" << endl;
     }
 
 }
@@ -62,8 +62,21 @@ void TaskManager::clear_task_list() {
 }
 
 void TaskManager::change_task_status(const string& task,const char& status)
-{
+{   bool task_found = false;
+    // search for the given task in the list of tasks
+    for(int i=0; i<task_list.size(); i++){
+        if(task_list[i] == task){
+            task_status[i] = status;
+            task_found = true;
+            break;
+        }
+    }
 
+    // update the output file if the task is found
+    if(task_found != true)
+        cout << "Task is not in the list.\n" << endl;
+    else
+        override_old_file();
 }
 
 void TaskManager::store_to_file(const string& task, const char& status)
