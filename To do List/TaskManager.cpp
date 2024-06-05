@@ -24,7 +24,7 @@ void TaskManager::view_task_list()
 
         for(int i=0; i<task_list.size(); i++)
         {
-            cout << task_list[i] << endl;
+            cout << task_list[i] << "\t" <<task_status[i] << endl;
         }
     }
     else
@@ -34,24 +34,30 @@ void TaskManager::view_task_list()
 
 }
 
-void TaskManager::delete_task(const string& task) {
+void TaskManager::delete_task(const string& task)
+{
     auto it = std::find(task_list.begin(), task_list.end(), task);
 
-    if (it != task_list.end()) {
+    if (it != task_list.end())
+    {
         size_t index = std::distance(task_list.begin(), it);
         cout << "Task deleted.\n";
         task_list.erase(task_list.begin() + index);
         task_status.erase(task_status.begin() + index);
         override_old_file();
-    } else {
+    }
+    else
+    {
         cout << "The task you searched for does not exist.\n";
     }
 }
 
-void TaskManager::clear_task_list() {
+void TaskManager::clear_task_list()
+{
     ofstream outFile;
     outFile.open("outfile.txt", ofstream::out | ofstream::trunc); // Open for writing and truncate existing content
-    if (!outFile.is_open()) {
+    if (!outFile.is_open())
+    {
         cout << "Output file opening failed.\n";
         exit(1);
     }
@@ -62,10 +68,13 @@ void TaskManager::clear_task_list() {
 }
 
 void TaskManager::change_task_status(const string& task,const char& status)
-{   bool task_found = false;
+{
+    bool task_found = false;
     // search for the given task in the list of tasks
-    for(int i=0; i<task_list.size(); i++){
-        if(task_list[i] == task){
+    for(int i=0; i<task_list.size(); i++)
+    {
+        if(task_list[i] == task)
+        {
             task_status[i] = status;
             task_found = true;
             break;
@@ -91,7 +100,7 @@ void TaskManager::store_to_file(const string& task, const char& status)
         exit(1);
     }
 
-    outFile << task << " " << status << "\n";
+    outFile << task << "," << status << "\n";
     outFile.close();
 
 }
@@ -112,7 +121,7 @@ void TaskManager::override_old_file()
 
     for(int i=0; i<task_list.size(); i++)
     {
-        outFile << task_list[i] << task_status[i] << "\n";
+        outFile << task_list[i] << "," << task_status[i] << "\n";
     }
     outFile.close();
 }
@@ -128,17 +137,25 @@ void TaskManager::get_from_file()
     }
     else
     {
-        string task;
-        char status;
-
-        while(inFile >> task >> status)
+        string line;
+        // read a whole line in the file and use
+        // a stringstream to split the data in the line by a comma
+        while(getline(inFile, line))
         {
-            task_list.push_back(task);
 
-            if(islower(status))
-                status = toupper(status);
+            stringstream ss(line);
+            string task;
+            char status;
 
-            task_status.push_back(status);
+            if(getline(ss, task, ',') && ss >> status)
+            {
+                task_list.push_back(task);
+
+                if(islower(status))
+                    status = toupper(status);
+
+                task_status.push_back(status);
+            }
         }
     }
 
