@@ -19,11 +19,8 @@
 	<string>
 	<vector>
 
-1717590639 source:c:\users\mr perfect 15\desktop\sizwe\hello world\to do list\to do list\main.cpp
+1718310201 source:c:\users\mr perfect 15\desktop\sizwe\hello world\to do list\to do list\main.cpp
 	<iostream>
-	<fstream>
-	<iomanip>
-	"TaskManager.h"
 
 1717081734 c:\users\mr perfect 15\desktop\sizwe\hello world\to do list\to do list\taskmanager.h
 	<iostream>
@@ -38,4 +35,15 @@
 	<algorithm>
 	<iomanip>
 	"TaskManager.h"
+
+1718310293 source:c:\users\mr perfect 15\desktop\sizwe\hello world\to do list\to do list\src\simulateui.cpp
+	"SimulateUI.h"
+	<fstream>
+	<iomanip>
+	"../TaskManager.h"
+
+1718310247 c:\users\mr perfect 15\desktop\sizwe\hello world\to do list\to do list\include\simulateui.h
+	<fstream>
+	<iomanip>
+	"../TaskManager.h"
 
