@@ -21,6 +21,7 @@ void TaskManager::view_task_list()
     if(!task_list.empty())
     {
         cout << setw(8) << "Your task List" << endl;
+        cout  << "------------------------------------------- " << endl;
 
         for(int i=0; i<task_list.size(); i++)
         {
@@ -30,6 +31,7 @@ void TaskManager::view_task_list()
     else
     {
         cout << "Your task list is empty.\n" << endl;
+        cout  << "------------------------------------------- " << endl;
     }
 
 }
@@ -49,6 +51,7 @@ void TaskManager::delete_task(const string& task)
     else
     {
         cout << "The task you searched for does not exist.\n";
+        cout  << "------------------------------------------- " << endl;
     }
 }
 
@@ -82,9 +85,10 @@ void TaskManager::change_task_status(const string& task,const char& status)
     }
 
     // update the output file if the task is found
-    if(task_found != true)
+    if(task_found != true){
         cout << "Task is not in the list.\n" << endl;
-    else
+        cout  << "------------------------------------------- " << endl;
+    }else
         override_old_file();
 }
 
