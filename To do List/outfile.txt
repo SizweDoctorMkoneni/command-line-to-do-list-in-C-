@@ -1,5 +1,0 @@
-Read the bible,H
-Cook,L
-Bath,I
-Eat,I
-Read,L
